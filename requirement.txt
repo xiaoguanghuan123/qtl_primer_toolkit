@@ -1,0 +1,14 @@
+# Core dependencies
+primer3-py>=2.0.0
+biopython>=1.79.0
+pandas>=1.5.0
+matplotlib>=3.7.0
+numpy>=1.24.0
+jinja2>=3.1.0
+openpyxl>=3.1.0
+pyyaml>=6.0.0
+pyfaidx>=0.7.0
+
+# Optional for advanced features
+plotly>=5.14.0
+seaborn>=0.12.0
