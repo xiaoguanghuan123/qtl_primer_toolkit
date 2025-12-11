@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qtl-primer-toolkit"
+version = "1.0.0"
+description = "A comprehensive toolkit for designing PCR primers for fine-mapping QTL in plant recombinant populations"
+readme = "README.md"
+authors = [
+    {name = "Your Name", email = "your.email@unl.edu"}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+keywords = ["bioinformatics", "genetics", "qtl", "fine-mapping", "primer-design"]
+dependencies = [
+    "primer3-py>=2.0.0",
+    "biopython>=1.79",
+    "pandas>=1.3.0",
+    "pyfaidx>=0.6.0",
+    "matplotlib>=3.4.0",
+    "numpy>=1.21.0",
+    "jinja2>=3.0.0",
+    "openpyxl>=3.0.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "flake8>=3.9",
+    "black>=21.0",
+    "mypy>=0.900",
+    "sphinx>=4.0",
+    "sphinx-rtd-theme>=0.5",
+    "twine>=3.0",
+]
+viz = [
+    "plotly>=5.0",
+    "seaborn>=0.11",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/qtl-primer-toolkit"
+BugTracker = "https://github.com/yourusername/qtl-primer-toolkit/issues"
+Documentation = "https://github.com/yourusername/qtl-primer-toolkit/docs"
+
+[project.scripts]
+qtlprimer = "qtlprimer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["qtlprimer*"]
+exclude = ["tests*", "docs*", "examples*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=qtlprimer --cov-report=html"
