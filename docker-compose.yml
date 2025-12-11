@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  qtl-primer:
+    build: .
+    volumes:
+      - ./data:/data
+      - ./results:/results
+    command: design --variants /data/variants.vcf --reference /data/genome.fasta --blast-db /data/blastdb --output /results
